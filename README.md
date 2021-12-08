@@ -1,24 +1,25 @@
-# README
+下記 Qiita 記事のサンプルコードです。
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+https://qiita.com/t0yohei/private/53941dac0d523066b62f
 
-Things you may want to cover:
+## サンプルコード実行手順
 
-* Ruby version
+ruby の install などはできている前提です。
 
-* System dependencies
+```shell
+$ bundle install --path vendor/bundle
 
-* Configuration
+$ bundle exec rails db:create
+$ bundle exec rails db:migrate
+$ bundle exec rails db:seed
 
-* Database creation
+$ bundle exec rails r lib/eagar_load_sample.rb
+```
 
-* Database initialization
+SQL のログは `log/development.log` に出力されるので、
 
-* How to run the test suite
+```shell
+tail -f log/development.log
+```
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+などで確認してください。
