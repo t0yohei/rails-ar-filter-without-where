@@ -35,3 +35,11 @@ authors.each do |author|
     pp "--comic_#{index}--", comic
   end
 end
+
+# -- assosiation scope を使った絞り込み --
+authors = Author.eager_load(:magazine_books)
+authors.each do |author|
+  author.magazine_books.each_with_index do |magazine_book, index|
+    pp "--magazine_book#{index}--", magazine_book
+  end
+end
